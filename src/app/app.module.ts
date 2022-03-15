@@ -10,14 +10,18 @@ import { ProductAlertsComponent } from './product-alerts/product-alerts.componen
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: 'products/:productId', component: ProductDetailsComponent},
+      { path: 'products/:productId', component: ProductDetailsComponent },
       { path: '', component: ProductListComponent },
-    ])
+      { path: 'cart', component: CartComponent },
+    ]),
   ],
   declarations: [
     AppComponent,
@@ -25,14 +29,11 @@ import { CartComponent } from './cart/cart.component';
     ProductListComponent,
     ProductAlertsComponent,
     ProductDetailsComponent,
-    CartComponent
+    CartComponent,
   ],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}
 
 /*
 Copyright Google LLC. All Rights Reserved.
